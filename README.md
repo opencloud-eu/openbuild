@@ -1,5 +1,5 @@
 # About
-This repository contains a helper script to mak it easier to setup a OpenCloud build environment for OpenCloud desktop client 2.7 and newer.
+This repository contains a helper script to mak it easier to setup a OpenCloud build environment.
 
 
 # Required dependencies

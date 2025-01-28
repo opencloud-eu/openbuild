@@ -19,23 +19,23 @@ This repository contains a helper script to mak it easier to setup a OpenCloud b
 - `(py.exe|python3) openbuild.py opencloud-desktop`
 
 ## Build a specific branch configuration
-This will only affect the version of the dependencies.
-- `(py.exe|python3) openbuild.py --branch 5 -- opencloud-desktop`
+This will only affect the version of the dependencies, without providing `--branch` the `main` branch is used.
+- `(py.exe|python3) openbuild.py --branch 1 -- opencloud-desktop`
 
 ## Build a specific client tag
-- `(py.exe|python3) openbuild.py --branch 5 -- --set revision=v5.2.1 opencloud-desktop`
-- `(py.exe|python3) openbuild.py --branch 5 -- opencloud-desktop`
+- `(py.exe|python3) openbuild.py --branch 1 -- --set revision=v5.2.1 opencloud-desktop`
+- `(py.exe|python3) openbuild.py --branch 1 -- opencloud-desktop`
 
 ## Use special craft commands
-- `(py.exe|python3) openbuild.py --branch 5 -- --package opencloud-desktop`
-- `(py.exe|python3) openbuild.py --branch 5 -- --run .\master\windows-cl-msvc2022-x86_64-debug\bin\opencloud.exe`
+- `(py.exe|python3) openbuild.py --branch 1 -- --package opencloud-desktop`
+- `(py.exe|python3) openbuild.py --branch 1 -- --run .\master\windows-cl-msvc2022-x86_64-debug\bin\opencloud.exe`
 
 
 ## Appendix
 ### Run with a specific target configuration
-- `(py.exe|python3) openbuild.py --branch 5 --target windows-cl-msvc2022-x86_64`
+- `(py.exe|python3) openbuild.py --branch 1 --target windows-cl-msvc2022-x86_64`
 ### Query available targets
-- `(py.exe|python3) openbuild.py --branch 5 --target help`
+- `(py.exe|python3) openbuild.py --branch 1 --target help`
 
 
 ## On Linux

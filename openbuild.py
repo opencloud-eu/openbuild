@@ -67,7 +67,7 @@ class Craft(object):
             dest = self.root / f
             if not dest.exists() or update:
                 setup = True
-                src = f"https://raw.githubusercontent.com/owncloud/client/{self.branch}/{f}"
+                src = f"https://raw.githubusercontent.com/opencloud-eu/desktop/{self.branch}/{f}"
                 print(f"Download: {src} to {dest}", file=sys.stderr)
                 try:
                     urllib.request.urlretrieve(src, dest)
@@ -86,7 +86,7 @@ if __name__ == "__main__":
         defaultTarget = "macos-64-clang"
     parser = argparse.ArgumentParser(prog="build")
     parser.add_argument("--target", action="store", default=defaultTarget, help=f"Specify a target to use, default is {defaultTarget!r}, use --target help to print available targets.")
-    parser.add_argument("--branch", action="store", default="master", help="Specify the configuration of the branch to use, default is 'master'.")
+    parser.add_argument("--branch", action="store", default="main", help="Specify the configuration of the branch to use, default is 'main'.")
     parser.add_argument("--update", action="store_true", default=False, help="Updates the cache settings for a specified branch.")
     parser.add_argument("args", nargs=argparse.REMAINDER)
 

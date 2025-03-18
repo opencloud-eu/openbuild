@@ -81,11 +81,8 @@ class Craft(object):
 
 
 if __name__ == "__main__":
-    defaultTarget = "windows-msvc2019_64-cl"
-    if os.name != "nt":
-        defaultTarget = "macos-64-clang"
     parser = argparse.ArgumentParser(prog="build")
-    parser.add_argument("--target", action="store", default=defaultTarget, help=f"Specify a target to use, default is {defaultTarget!r}, use --target help to print available targets.")
+    parser.add_argument("--target", action="store", default="help", help=f"Specify a target to use, use --target help to print available targets.")
     parser.add_argument("--branch", action="store", default="main", help="Specify the configuration of the branch to use, default is 'main'.")
     parser.add_argument("--update", action="store_true", default=False, help="Updates the cache settings for a specified branch.")
     parser.add_argument("args", nargs=argparse.REMAINDER)

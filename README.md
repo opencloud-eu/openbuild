@@ -28,7 +28,7 @@ This will only affect the version of the dependencies, without providing `--bran
 
 ## Use special craft commands
 - `(py.exe|python3) openbuild.py --branch 1 -- --package opencloud-desktop`
-- `(py.exe|python3) openbuild.py --branch 1 -- --run .\master\windows-cl-msvc2022-x86_64-debug\bin\opencloud.exe`
+- `(py.exe|python3) openbuild.py --branch 1 -- --run .\main\windows-cl-msvc2022-x86_64-debug\bin\opencloud.exe`
 
 
 ## Appendix
@@ -45,7 +45,7 @@ This will only affect the version of the dependencies, without providing `--bran
  
 ### Build the client with opencloud dependencies
 
-- `python3 ./openbuild.py --branch master --target linux-64-gcc opencloud-desktop`
-- When built, start the client like this: `./master/linux-64-gcc/bin/opencloud -s`
+- `python3 ./openbuild.py --branch main --target linux-64-gcc opencloud-desktop`
+- When built, start the client like this: `./main/linux-64-gcc/bin/opencloud -s`
 
 

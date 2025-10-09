@@ -1,5 +1,5 @@
 # About
-This repository contains a helper script to mak it easier to setup a OpenCloud build environment.
+This repository contains a helper script to make it easier to setup a OpenCloud build environment.
 
 
 # Required dependencies

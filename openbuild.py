@@ -31,12 +31,13 @@ import urllib.request
 class Craft(object):
     LOC = Path(__file__).parent.resolve()
 
-    def __init__(self, branch: str, target: str):
+    def __init__(self, branch: str, target: str, config_override : [str] = []):
         self.branch = branch
         self.root = Craft.LOC / branch
         self.config = self.root / ".craft.ini"
         self.shelf = self.root / ".craft.shelf"
         self.target = target
+        self.config_override = config_override
 
     def craft(self, command : [str], setup=False):
         args = [sys.executable, str(Craft.LOC / "craftmast/CraftMaster.py"),
@@ -44,7 +45,8 @@ class Craft(object):
                 "--variables", f"Root={self.root}"
                              , "CiBuild=False"
                              , "CreateCache=False",
-                "--target", self.target]
+                "--target", self.target,
+                "--config-override"] + self.config_override
         if setup:
             args += ["--setup"]
         args += ["-c"] + [str(x) for x in command]
@@ -74,6 +76,9 @@ class Craft(object):
                 except Exception as e:
                     print(e, file=sys.stderr)
                     exit(1)
+        if self.config_override:
+            setup = True
+            print(f"Using config overrides: {self.config_override} this implies --update", file=sys.stderr)
         if not self.craft(["--unshelve", self.shelf], setup=setup):
             print("Failed to setup craft", file=sys.stderr)
             exit(1)
@@ -85,10 +90,11 @@ if __name__ == "__main__":
     parser.add_argument("--target", action="store", default="help", help=f"Specify a target to use, use --target help to print available targets.")
     parser.add_argument("--branch", action="store", default="main", help="Specify the configuration of the branch to use, default is 'main'.")
     parser.add_argument("--update", action="store_true", default=False, help="Updates the cache settings for a specified branch.")
+    parser.add_argument("--config-override", action="append", default=[], help="The path to a configuration override passed to craftmaster. Implies --update.")
     parser.add_argument("args", nargs=argparse.REMAINDER)
 
     args = parser.parse_args()
-    craft = Craft(args.branch, args.target)
+    craft = Craft(args.branch, args.target, args.config_override)
     craft.setup(args.update)
     if args.args:
         if args.args[0] == "--":

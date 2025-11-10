@@ -45,8 +45,9 @@ class Craft(object):
                 "--variables", f"Root={self.root}"
                              , "CiBuild=False"
                              , "CreateCache=False",
-                "--target", self.target,
-                "--config-override"] + self.config_override
+                "--target", self.target]
+        if self.config_override:
+             args += ["--config-override"] + self.config_override
         if setup:
             args += ["--setup"]
         args += ["-c"] + [str(x) for x in command]

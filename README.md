@@ -23,7 +23,7 @@ This will only affect the version of the dependencies, without providing `--bran
 - `(py.exe|python3) openbuild.py --branch main -- opencloud-desktop`
 
 ## Build a specific client tag
-- `(py.exe|python3) openbuild.py --branch stable-3.0 -- --set revision=v5.2.1 opencloud-desktop`
+- `(py.exe|python3) openbuild.py --branch stable-3.0 -- --set revision=v3.0.2 opencloud-desktop`
 - `(py.exe|python3) openbuild.py --branch stable-3.0 -- opencloud-desktop`
 
 ## Use special craft commands

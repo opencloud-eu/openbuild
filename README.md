@@ -11,7 +11,6 @@ This repository contains a helper script to make it easier to setup a OpenCloud 
   - Select `Desktop development with C++`
   - Go to `Individual Components`
   - Select `git`
-  - Select `python2`
   - Select `python3`
   - Click the `Modify` button
 
